@@ -1,5 +1,5 @@
-<header class="p-3 text-bg-dark">
-    <div class="container-fluid">
+<header class="p-3 text-bg-primary navbar-dark ">
+    <div class="container-fluid ">
       <div class="d-flex flex-wrap align-items-center justify-content-between">
         <a href="/" class="d-flex align-items-stert mb-2 mb-lg-0 me-5 text-white text-decoration-none">
           <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-chat-heart-fill" viewBox="0 0 16 16">
@@ -8,16 +8,16 @@
         </a>
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" *ngIf="accountService.currentUser$ | async">
-          <li><a href="#" class="nav-link px-2 text-white">Home</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Matches</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Lists</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">Messages</a></li>
-          <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+          <li><a routerLink="/" routerLinkActive="active" class="nav-link px-2 text-white">Home</a></li>
+          <li><a routerLink="/members" routerLinkActive="active" class="nav-link px-2 text-white">Matches</a></li>
+          <li><a routerLink="/lists" routerLinkActive="active" class="nav-link px-2 text-white">Lists</a></li>
+          <li><a routerLink="/messages" routerLinkActive="active" class="nav-link px-2 text-white">Messages</a></li>
+          <li><a routerLink="/" routerLinkActive="active" class="nav-link px-2 text-white">About</a></li>
         </ul>
 
-        <div class="btn-group" dropdown *ngIf="accountService.currentUser$ | async">
+        <div class="btn-group" dropdown *ngIf="(accountService.currentUser$ | async) as user">
           <a dropdownToggle class="dropdown-toggle text-decoration-none text-white">
-            Welcome User
+            Welcome {{user.userName | titlecase}}
           </a>
           <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
               role="menu" aria-labelledby="button-basic">
@@ -47,3 +47,5 @@
     </div>
     
   </header>
+
+  

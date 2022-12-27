@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { PopoverModule } from 'ngx-bootstrap/popover';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { DashboardComponent } from './Components/dashboard/dashboard.component';
 import { RegisterComponent } from './Components/dashboard/register/register.component';
+import { MemberListComponent } from './Components/members/member-list/member-list.component';
+import { MemberDetailComponent } from './Components/members/member-detail/member-detail.component';
+import { ListsComponent } from './Components/lists/lists.component';
+import { MessagesComponent } from './Components/messages/messages.component';
+import { SharedModule } from './_modules/shared.module';
 
 
 @NgModule({
@@ -18,7 +21,11 @@ import { RegisterComponent } from './Components/dashboard/register/register.comp
     AppComponent,
     NavbarComponent,
     DashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    MemberListComponent,
+    MemberDetailComponent,
+    ListsComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -26,8 +33,7 @@ import { RegisterComponent } from './Components/dashboard/register/register.comp
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    PopoverModule.forRoot(),
-    BsDropdownModule.forRoot()
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
